@@ -12,6 +12,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
+    var countUpdates = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,19 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if countUpdates < 5 {
+            if let coordinates = locationManager.location?.coordinate {
+                let region = MKCoordinateRegion.init(center: coordinates, latitudinalMeters: 150, longitudinalMeters: 150)
+                mapView.setRegion(region, animated: true)
+            }
+            countUpdates += 1
+        } else {
+            locationManager.stopUpdatingLocation()
+        }
+        
     }
 
 }
