@@ -14,6 +14,8 @@
 		DFDDE1C72624F0E000EB43F6 /* Pokemon_GO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DFDDE1C52624F0E000EB43F6 /* Pokemon_GO.xcdatamodeld */; };
 		DFDDE1C92624F0E200EB43F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFDDE1C82624F0E200EB43F6 /* Assets.xcassets */; };
 		DFDDE1CC2624F0E200EB43F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFDDE1CA2624F0E200EB43F6 /* LaunchScreen.storyboard */; };
+		DFDDE1D62624F15B00EB43F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFDDE1D52624F15B00EB43F6 /* MapKit.framework */; };
+		DFDDE1D82624F16600EB43F6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFDDE1D72624F16600EB43F6 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		DFDDE1C82624F0E200EB43F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFDDE1CB2624F0E200EB43F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DFDDE1CD2624F0E200EB43F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFDDE1D52624F15B00EB43F6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		DFDDE1D72624F16600EB43F6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFDDE1D82624F16600EB43F6 /* CoreLocation.framework in Frameworks */,
+				DFDDE1D62624F15B00EB43F6 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +50,7 @@
 			children = (
 				DFDDE1BB2624F0E000EB43F6 /* Pokemon GO */,
 				DFDDE1BA2624F0E000EB43F6 /* Products */,
+				DFDDE1D42624F15B00EB43F6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +75,15 @@
 				DFDDE1C52624F0E000EB43F6 /* Pokemon_GO.xcdatamodeld */,
 			);
 			path = "Pokemon GO";
+			sourceTree = "<group>";
+		};
+		DFDDE1D42624F15B00EB43F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DFDDE1D72624F16600EB43F6 /* CoreLocation.framework */,
+				DFDDE1D52624F15B00EB43F6 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
