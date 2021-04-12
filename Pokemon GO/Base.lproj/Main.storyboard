@@ -26,6 +26,9 @@
                                     <constraint firstAttribute="width" constant="50" id="XNi-G0-1te"/>
                                 </constraints>
                                 <state key="normal" image="compass"/>
+                                <connections>
+                                    <action selector="alignPlayerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="34o-bB-KWO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHy-Ay-dvL">
                                 <rect key="frame" x="182" y="802" width="50" height="50"/>
@@ -34,6 +37,9 @@
                                     <constraint firstAttribute="height" constant="50" id="jCY-dX-zHI"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="pokeball"/>
+                                <connections>
+                                    <action selector="openPokedexButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yre-8W-NCN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

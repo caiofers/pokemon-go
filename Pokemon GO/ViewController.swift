@@ -14,6 +14,14 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var locationManager = CLLocationManager()
     var countUpdates = 0
     
+    @IBAction func alignPlayerButton(_ sender: Any) {
+        alignPlayer()
+    }
+    
+    @IBAction func openPokedexButton(_ sender: Any) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,15 +59,19 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if countUpdates < 5 {
-            if let coordinates = locationManager.location?.coordinate {
-                let region = MKCoordinateRegion.init(center: coordinates, latitudinalMeters: 150, longitudinalMeters: 150)
-                mapView.setRegion(region, animated: true)
-            }
+            alignPlayer()
             countUpdates += 1
         } else {
             locationManager.stopUpdatingLocation()
         }
         
+    }
+    
+    func alignPlayer() {
+        if let coordinates = locationManager.location?.coordinate {
+            let region = MKCoordinateRegion.init(center: coordinates, latitudinalMeters: 150, longitudinalMeters: 150)
+            mapView.setRegion(region, animated: true)
+        }
     }
 
 }
