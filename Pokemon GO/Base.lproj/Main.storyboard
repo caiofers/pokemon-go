@@ -19,11 +19,31 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hnP-xq-NlA">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ns0-iN-pFS">
+                                <rect key="frame" x="354" y="54" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="NqT-oZ-OE8"/>
+                                    <constraint firstAttribute="width" constant="50" id="XNi-G0-1te"/>
+                                </constraints>
+                                <state key="normal" image="compass"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHy-Ay-dvL">
+                                <rect key="frame" x="182" y="802" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="EAi-1q-7Ja"/>
+                                    <constraint firstAttribute="height" constant="50" id="jCY-dX-zHI"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="pokeball"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ns0-iN-pFS" secondAttribute="trailing" constant="10" id="Q9V-r0-RdJ"/>
+                            <constraint firstItem="cHy-Ay-dvL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R0Y-dZ-dmh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hnP-xq-NlA" secondAttribute="bottom" id="Un4-Rt-aqb"/>
+                            <constraint firstItem="ns0-iN-pFS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="cjz-Zc-tWV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cHy-Ay-dvL" secondAttribute="bottom" constant="10" id="haU-PI-9VP"/>
                             <constraint firstItem="hnP-xq-NlA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jfi-9S-gU1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hnP-xq-NlA" secondAttribute="trailing" id="nMP-hf-CDC"/>
                             <constraint firstItem="hnP-xq-NlA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zRC-dB-bEV"/>
@@ -39,6 +59,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="compass" width="512" height="512"/>
+        <image name="pokeball" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
