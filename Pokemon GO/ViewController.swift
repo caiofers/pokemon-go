@@ -30,6 +30,27 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
+        showPokes()
+    }
+    
+    func showPokes() {
+        Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: {(timer) in
+            if let coordinate = self.locationManager.location?.coordinate {
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = coordinate
+                
+                let range = 100
+                
+                let randLatitude = Double(Int(arc4random_uniform(UInt32(range))) - range/2) / 100000.0
+                let randLongitude = Double(Int(arc4random_uniform(UInt32(range))) - range/2) / 100000.0
+                
+                annotation.coordinate.latitude += randLatitude
+                annotation.coordinate.longitude += randLongitude
+
+                self.mapView.addAnnotation(annotation)
+            }
+        })
     }
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
