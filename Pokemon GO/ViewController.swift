@@ -52,6 +52,24 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             }
         })
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        
+        if annotation is MKUserLocation {
+            annotationView.image = UIImage(named: "player")
+        } else {
+            annotationView.image = UIImage(named: "pikachu-2")
+        }
+        
+        var frame = annotationView.frame
+        frame.size.height = 40
+        frame.size.width = 40
+        
+        annotationView.frame = frame
+        
+        return annotationView
+    }
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         if manager.authorizationStatus == .denied {
