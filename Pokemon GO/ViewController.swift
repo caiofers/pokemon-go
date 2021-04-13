@@ -14,6 +14,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var locationManager = CLLocationManager()
     var countUpdates = 0
     
+    var coreDataPokemon: CoreDataPokemon = CoreDataPokemon()
+    var pokemons: [Pokemon] = []
+    
     @IBAction func alignPlayerButton(_ sender: Any) {
         alignPlayer()
     }
@@ -30,6 +33,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
+        pokemons = coreDataPokemon.retriveAllPokes()
         
         showPokes()
     }
@@ -59,7 +64,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         if annotation is MKUserLocation {
             annotationView.image = UIImage(named: "player")
         } else {
-            annotationView.image = UIImage(named: "pikachu-2")
+            let pokeIndex =  Int(arc4random_uniform(UInt32(pokemons.count)))
+            annotationView.image = UIImage(named: pokemons[pokeIndex].imageName ?? "")
         }
         
         var frame = annotationView.frame
