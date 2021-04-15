@@ -23,9 +23,9 @@ class CoreDataPokemon {
             return
         }
         
-        self.createPoke(name: "Pikachu", imageName: "pikachu-2", timesCaptured: 0)
-        self.createPoke(name: "Mew", imageName: "mew", timesCaptured: 0)
-        self.createPoke(name: "Charmander", imageName: "charmander", timesCaptured: 1)
+        self.createPoke(name: "Pikachu", imageName: "pikachu-2", catches: 0)
+        self.createPoke(name: "Mew", imageName: "mew", catches: 0)
+        self.createPoke(name: "Charmander", imageName: "charmander", catches: 1)
         
         do {
             try context.save()
@@ -33,7 +33,7 @@ class CoreDataPokemon {
         
     }
     
-    func createPoke(name: String, imageName: String, timesCaptured: Int) {
+    func createPoke(name: String, imageName: String, catches: Int) {
         guard let context = getContext() else {
             return
         }
@@ -41,7 +41,7 @@ class CoreDataPokemon {
         let pokemon = Pokemon(context: context)
         pokemon.name = name
         pokemon.imageName = imageName
-        pokemon.timesCaptured = Int64(timesCaptured)
+        pokemon.catches = Int64(catches)
     }
     
     func retriveAllPokes() -> [Pokemon] {
@@ -57,6 +57,22 @@ class CoreDataPokemon {
                 return retriveAllPokes()
             }
             
+            return result
+        } catch {}
+        
+        return []
+    }
+    
+    func retrievePokedexPokes(caught: Bool) -> [Pokemon] {
+        guard let context = getContext() else {
+            return []
+        }
+        
+        let request = Pokemon.fetchRequest() as NSFetchRequest<Pokemon>
+        request.predicate = caught ? NSPredicate(format: "catches > 0") : NSPredicate(format: "catches = 0")
+        
+        do {
+            let result = try context.fetch(request)
             return result
         } catch {}
         
