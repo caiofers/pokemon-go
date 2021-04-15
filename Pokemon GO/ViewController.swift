@@ -42,8 +42,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     func showPokes() {
         Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: {(timer) in
             if let coordinate = self.locationManager.location?.coordinate {
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = coordinate
+                
+                let pokeIndex =  Int(arc4random_uniform(UInt32(self.pokemons.count)))
+                
+                let pokemon = self.pokemons[pokeIndex]
+                
+                let annotation = PokeAnnotation(coordinate: coordinate, pokemon: pokemon)
                 
                 let range = 100
                 
@@ -64,8 +68,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         if annotation is MKUserLocation {
             annotationView.image = UIImage(named: "player")
         } else {
-            let pokeIndex =  Int(arc4random_uniform(UInt32(pokemons.count)))
-            annotationView.image = UIImage(named: pokemons[pokeIndex].imageName ?? "")
+            let pokeAnnotation = annotation as! PokeAnnotation
+            let poke = pokeAnnotation.pokemon
+            annotationView.image = UIImage(named: poke.imageName!)
         }
         
         var frame = annotationView.frame
