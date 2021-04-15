@@ -98,8 +98,22 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             if let userCoordinate = self.locationManager.location?.coordinate {
                 if mapView.visibleMapRect.contains(MKMapPoint(userCoordinate)) {
                     self.coreDataPokemon.updatePoke(pokemon: pokemon)
+                    self.mapView.removeAnnotation(annotation!)
+                    
+                    let alert = UIAlertController(title: "Congrats", message: "You caught the pokémon " + pokemon.name!, preferredStyle: .alert)
+                    
+                    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alert.addAction(okAction)
+                    
+                    self.present(alert, animated: true, completion: nil)
+                    
                 } else {
-                    print("Vai dar não hehe")
+                    let alert = UIAlertController(title: "Too far", message: "Get closer to catch the " + pokemon.name! + " pokémon", preferredStyle: .alert)
+                    
+                    let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alert.addAction(okAction)
+                    
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
             mapView.deselectAnnotation(annotation, animated: true)
