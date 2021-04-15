@@ -25,7 +25,7 @@ class CoreDataPokemon {
         
         self.createPoke(name: "Pikachu", imageName: "pikachu-2", catches: 0)
         self.createPoke(name: "Mew", imageName: "mew", catches: 0)
-        self.createPoke(name: "Charmander", imageName: "charmander", catches: 1)
+        self.createPoke(name: "Charmander", imageName: "charmander", catches: 0)
         
         do {
             try context.save()

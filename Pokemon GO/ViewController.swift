@@ -84,15 +84,26 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         let annotation = view.annotation
-        mapView.deselectAnnotation(annotation, animated: true)
-        
         guard annotation is PokeAnnotation else {
             return
         }
         
         let pokemon = (annotation as! PokeAnnotation).pokemon
+        if let pokeCoordinate = annotation?.coordinate {
+            let region = MKCoordinateRegion.init(center: pokeCoordinate, latitudinalMeters: 150, longitudinalMeters: 150)
+            mapView.setRegion(region, animated: true)
+        }
         
-        coreDataPokemon.updatePoke(pokemon: pokemon)
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+            if let userCoordinate = self.locationManager.location?.coordinate {
+                if mapView.visibleMapRect.contains(MKMapPoint(userCoordinate)) {
+                    self.coreDataPokemon.updatePoke(pokemon: pokemon)
+                } else {
+                    print("Vai dar não hehe")
+                }
+            }
+            mapView.deselectAnnotation(annotation, animated: true)
+        }
     }
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -131,8 +142,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     func alignPlayer() {
-        if let coordinates = locationManager.location?.coordinate {
-            let region = MKCoordinateRegion.init(center: coordinates, latitudinalMeters: 150, longitudinalMeters: 150)
+        if let coordinate = locationManager.location?.coordinate {
+            let region = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 150, longitudinalMeters: 150)
             mapView.setRegion(region, animated: true)
         }
     }
