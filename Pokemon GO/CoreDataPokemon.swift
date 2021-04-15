@@ -44,6 +44,18 @@ class CoreDataPokemon {
         pokemon.catches = Int64(catches)
     }
     
+    func updatePoke(pokemon: Pokemon) {
+        guard let context = getContext() else {
+            return
+        }
+        
+        pokemon.catches += 1
+        
+        do {
+            try context.save()
+        } catch {}
+    }
+    
     func retriveAllPokes() -> [Pokemon] {
         guard let context = getContext() else {
             return []

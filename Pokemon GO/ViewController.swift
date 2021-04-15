@@ -81,6 +81,19 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         return annotationView
     }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let annotation = view.annotation
+        mapView.deselectAnnotation(annotation, animated: true)
+        
+        guard annotation is PokeAnnotation else {
+            return
+        }
+        
+        let pokemon = (annotation as! PokeAnnotation).pokemon
+        
+        coreDataPokemon.updatePoke(pokemon: pokemon)
+    }
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         if manager.authorizationStatus == .denied {
