@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DF6E5E9C262645F800027D18 /* CoreDataPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6E5E9B262645F800027D18 /* CoreDataPokemon.swift */; };
 		DF6E5E9F2627D8E800027D18 /* PokeAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6E5E9E2627D8E800027D18 /* PokeAnnotation.swift */; };
+		DF6E5EA22627DD1F00027D18 /* PokedexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6E5EA12627DD1F00027D18 /* PokedexViewController.swift */; };
 		DFDDE1BD2624F0E000EB43F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDDE1BC2624F0E000EB43F6 /* AppDelegate.swift */; };
 		DFDDE1BF2624F0E000EB43F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDDE1BE2624F0E000EB43F6 /* SceneDelegate.swift */; };
 		DFDDE1C12624F0E000EB43F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDDE1C02624F0E000EB43F6 /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		DF6E5E9B262645F800027D18 /* CoreDataPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPokemon.swift; sourceTree = "<group>"; };
 		DF6E5E9E2627D8E800027D18 /* PokeAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeAnnotation.swift; sourceTree = "<group>"; };
+		DF6E5EA12627DD1F00027D18 /* PokedexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexViewController.swift; sourceTree = "<group>"; };
 		DFDDE1B92624F0E000EB43F6 /* Pokemon GO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokemon GO.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFDDE1BC2624F0E000EB43F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFDDE1BE2624F0E000EB43F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				DFDDE1BC2624F0E000EB43F6 /* AppDelegate.swift */,
 				DFDDE1BE2624F0E000EB43F6 /* SceneDelegate.swift */,
 				DFDDE1C02624F0E000EB43F6 /* ViewController.swift */,
+				DF6E5EA12627DD1F00027D18 /* PokedexViewController.swift */,
 				DF6E5E9B262645F800027D18 /* CoreDataPokemon.swift */,
 				DFDDE1C22624F0E000EB43F6 /* Main.storyboard */,
 				DFDDE1C82624F0E200EB43F6 /* Assets.xcassets */,
@@ -168,6 +171,7 @@
 				DFDDE1BD2624F0E000EB43F6 /* AppDelegate.swift in Sources */,
 				DFDDE1BF2624F0E000EB43F6 /* SceneDelegate.swift in Sources */,
 				DF6E5E9C262645F800027D18 /* CoreDataPokemon.swift in Sources */,
+				DF6E5EA22627DD1F00027D18 /* PokedexViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
